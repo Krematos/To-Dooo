@@ -30,25 +30,28 @@ public class TaskListPanel extends JPanel {
         splneno.setMargin(new Insets(2, 8, 2, 8));  // Nastaví vnitřní okraje tlačítka
         splneno.setBackground(new Color(0x4CAF50)); // Nastaví zelenou barvu pozadí
         splneno.setForeground(Color.WHITE);     // Nastaví bílou barvu textu
+        splneno.setPreferredSize(new Dimension(40,40));
 
         // Vytvoření panelu pro jeden úkol.
         JPanel ukolPanel = new JPanel();
         ukolPanel.setBackground(new Color(210, 180, 140));
         System.out.println("Jede panel?");      // kontrola
-        ukolPanel.setPreferredSize(new Dimension(0, 40));
-        ukolPanel.setBackground(Color.white);
+        ukolPanel.setPreferredSize(new Dimension(150, 40));
         ukolPanel.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
+        ukolPanel.setBorder(BorderFactory.createEmptyBorder(20, 40, 20, 40));
 
         // Vytvoření textového pole pro zobrazení textu úkolu
         JTextField textLabel = new JTextField(text);
-        System.out.println("Jede textové pole?");   // kontrola
-        textLabel.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        System.out.println("Jede textové pole?");   // kontrola        ;
+        textLabel.setPreferredSize(new Dimension(150, 40));
+        textLabel.setBorder(BorderFactory.createEmptyBorder(0, 40, 0, 40));
 
         // Odstranění úkolu po kliknutí
         JButton smazatUkol = new JButton("x");
         System.out.println("Jede smazat?");     // kontrola
         smazatUkol.setFocusPainted(false);      // Zabrání vykreslování rámečku při zaměření tlačítka
         smazatUkol.setMargin(new Insets(2, 8, 2, 8));
+        smazatUkol.setPreferredSize(new Dimension(40,40));
         smazatUkol.setBackground(Color.RED);
         smazatUkol.setForeground(Color.WHITE);
 
@@ -75,7 +78,7 @@ public class TaskListPanel extends JPanel {
 
         ukoly.add(ukolPanel);
         this.add(ukolPanel);
-        this.add(Box.createVerticalStrut(5)); // mezera mezi úkoly
+        //this.add(Box.createVerticalStrut(5)); // mezera mezi úkoly
         revalidate();
         repaint();
     }
